@@ -1,0 +1,65 @@
+// http://www.colourlovers.com/palette/932683/Compatible
+header {
+    border-top:10px solid #7FC7AF;
+    background:#3FB8AF;
+    color:lighten( #7fc7af, 20% );
+    padding:10px 0;
+
+    h1 {
+        color:#fff;
+    }
+
+    a {
+        color:#DAD8A7;
+    }
+
+}
+
+footer {
+    background:#DAD8A7;
+    padding:10px 0;
+    color:#a88;
+    font-size:18px;
+
+    a {
+        color:darken( #dad8a7, 50% );
+    }
+
+}
+
+h1 {
+    font-size:30px;
+    margin:0 0 15px;
+    font-weight:bold;
+    padding:0;
+}
+
+h2 {
+    font-size:20px;
+    font-weight:normal;
+    margin:0 0 10px;
+    padding:0;
+}
+
+.centered {
+    max-width:800px;
+    margin:0 auto;
+}
+
+.posts {
+    margin-top:20px;
+}
+
+.post {
+    border-bottom:1px solid #ff9e9d;
+    margin:0 0 30px;
+    padding:0 0 17px;
+}
+
+.post-head {
+    font-size:28px;
+    margin:0 0 15px;
+    padding:0;
+    color:#FF3D7F;
+    font-weight:bold;
+}

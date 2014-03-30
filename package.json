@@ -1,0 +1,17 @@
+{
+    "name": "bellesey-blog",
+    "version": "0.0.0",
+    "description": "Blog!",
+    "main": "index.js",
+    "scripts": {
+        "test": "test"
+    },
+    "author": "Andrew Ray",
+    "license": "BSD",
+    "devDependencies": {
+        "grunt": "0.4.1",
+        "grunt-contrib-sass": "0.5.0",
+        "grunt-contrib-watch": "0.5.3",
+        "grunt-rsync": "0.5.0"
+    }
+}

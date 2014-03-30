@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>Secret Shti</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+
+    <header class="clearfix">
+        <div class="centered">
+            <h1>Bellesey Blog</h1>
+            <h2>Where Andrew Ray Gets Drunk And Wathches Belle and Zues</h2>
+        </div>
+    </header>
+
+    <div ng-controller="Controller">
+
+        <form novalidate class="simple-form centered">
+            <label for="title">Title</label>
+            <input id="title" type="text" ng-model="post.title" />
+
+            <label for="body">Body</label>
+            <textarea id="body" type="text" ng-model="post.body"></textarea>
+
+            <button ng-click="update(user)">SAVE</button>
+        </form>
+
+    </div>
+
+    <div ng-controller="app-ctrl">
+
+        <div class="centered posts" ng-repeat="post in posts">
+
+            <div class="post">
+                <h3 class="post-head {{ post.class }}">{{ post.title }}</h3>
+                {{ post.body }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="clearfix">
+        <div class="centered">
+            made with love by <a href="/">andrewray.me</a> | <a href="https://twitter.com/andrewray">@andrewray</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/admin.js"></script>
+
+</body>
+
+</html>
