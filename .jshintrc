@@ -18,6 +18,7 @@
 
     "predef" : [
         "Firebase",
+        "_",
         "angular"
     ],
 

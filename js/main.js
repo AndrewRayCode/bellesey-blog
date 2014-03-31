@@ -19,8 +19,6 @@ phonecatApp.controller('app-ctrl', function( $scope, $firebase ) {
         $scope.newPerson = '';
     };
 
-    console.log('wtf');
-
     // Bind the todos to the firebase provider.
     $scope.posts = $firebase( fireRef );
 
