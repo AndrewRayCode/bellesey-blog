@@ -5,25 +5,24 @@ phonecatApp.controller('admin', function( $scope, $firebase, $firebaseSimpleLogi
 
     $scope.auth = $firebaseSimpleLogin( fireRef );
 
-    console.log($scope.auth);
-
     $scope.login = function() {
         $scope.auth.$login('github');
     };
 
     $scope.tags = [{
-        id: 1,
         name: 'Belle'
     }, {
-        id: 2,
-        name: 'Zues'
+        name: 'Zeus'
     }, {
-        id: 3,
-        name: 'Poop'
+        name: 'Poop',
+    }, {
+        name: 'Andy'
     }];
 
     $scope.create = function( post ) {
         
+        console.log( 'we received ', post );
+
         var required = [ 'title', 'body', 'tags' ];
 
         if( _.intersection( _.keys( post ), required ).length !== required.length ) {
@@ -32,7 +31,8 @@ phonecatApp.controller('admin', function( $scope, $firebase, $firebaseSimpleLogi
         }
 
         _.extend( post, {
-            creationdate: new Date()
+            creationdate: new Date(),
+            modificationdate: new Date()
         });
         $scope.posts.$add( post );
     };
@@ -40,6 +40,10 @@ phonecatApp.controller('admin', function( $scope, $firebase, $firebaseSimpleLogi
     $scope.remove = function( post ) {
         post.deleted = true;
         $scope.posts.$save( post.$id );
+    };
+
+    $scope.destroy = function( post ) {
+        $scope.posts.$remove( post.$id );
     };
 
     $scope.posts = $firebase( fireRef );
@@ -51,13 +55,41 @@ phonecatApp.directive('sselectize', function( $timeout ) {
         restrict: 'A',
         require: '?ngModel',
         // responsible for registering DOM listeners as well as updating the DOM
-        link: function( $scope, element, attrs, ngModel ) {
+        link: function( $scope, element, attrs, controller ) {
             $timeout(function() {
-                $(element).selectize($scope.$eval(attrs.selectize)).on('change', function(event) {
-                    console.log('hey', element.value);
-                    //$scope.$apply(applyChange);
-                    ngModel.$setViewValue(element.value);
+
+                console.log('attrs:',$scope.$eval(attrs.selectize));
+                $(element).selectize($scope.$eval(attrs.selectize)).on('change', function( event ) {
+
+                    console.log('meow', $scope.tags.filter(function( tag ) {
+                            console.log('comparing ',element.val(), tag.id , element.val().indexOf( tag.id ));
+                            return element.val().indexOf( tag.id ) > -1;
+                        })
+                    );
+
+                    //controller.$setViewValue( $scope.tags.filter(function( tag ) {
+                        //return element.val().indexOf( tag.id ) > -1;
+                    //}));
+
                 });
+
+            });
+        }
+    };
+});
+
+phonecatApp.directive('wysihtml5', function( $timeout ) {
+    return {
+        restrict: 'A',
+        require: '?ngModel',
+        // responsible for registering DOM listeners as well as updating the DOM
+        link: function( $scope, element, attrs, controller ) {
+            var editor = new wysihtml5.Editor( element.attr('id'), {
+                parserRules: wysihtml5ParserRules
+            });
+
+            editor.on( 'change', function() {
+                controller.$setViewValue( editor.getValue() );
             });
         }
     };

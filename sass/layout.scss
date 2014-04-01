@@ -5,12 +5,9 @@ header {
     color:lighten( #7fc7af, 20% );
     padding:10px 0;
 
-    h1 {
+    h1, a {
+        text-decoration:none;
         color:#fff;
-    }
-
-    a {
-        color:#DAD8A7;
     }
 
 }
@@ -47,21 +44,31 @@ h2 {
 }
 
 .posts {
-    margin-top:20px;
+    margin-top:50px;
 }
 
 .post {
     border-bottom:1px solid #ff9e9d;
-    margin:0 0 30px;
-    padding:0 0 17px;
+    margin:0 0 40px;
+    padding:0 0 37px;
+
+    &:last-child {
+        border-bottom:0 none;
+    }
 }
 
 .post-head {
     font-size:28px;
-    margin:0 0 15px;
+    margin:0 0 5px;
     padding:0;
     color:#FF3D7F;
     font-weight:bold;
+}
+
+.post-date {
+    font-size:18px;
+    color:darken( #dad8a7, 50% );
+    margin:0 0 10px;
 }
 
 .main-form {
@@ -87,4 +94,72 @@ h2 {
     background:#eee;
     margin-top:10px;
     padding:10px;
+}
+
+.neg-header {
+    background:#333;
+    color:#ff9e9d;
+    padding:10px;
+    margin:20px 0;
+}
+
+.neg-section {
+    background:#fee;
+}
+
+.icon {
+    width:75px;
+    height:75px;
+    border-radius:100%;
+    margin-right:6px;
+    float:left;
+    background-size:cover;
+    overflow:hidden;
+
+    &.last {
+        margin-right:20px;
+    }
+}
+
+.icon-belle {
+    @extend .icon;
+    background-image:url(../assets/bellesey-icon.png);
+}
+
+.icon-zeus {
+    @extend .icon;
+    background-image:url(../assets/poots-icon.png);
+}
+
+.icon-poop {
+    @extend .icon;
+    background-image:url(../assets/poop-icon.png);
+}
+
+.icon-andy {
+    @extend .icon;
+    background-image:url(../assets/andy-icon.png);
+}
+
+.post-header {
+    margin:0 0 15px;
+}
+
+.post-meta {
+    margin:9px 0 0;
+}
+
+.post-tags {
+    margin:15px 0 0;
+    font-size:16px;
+    color:darken( #dad8a7, 50% );
+}
+
+.tag-list {
+    color:darken( #3fb8af, 10% );
+}
+
+.post-image {
+    margin:15px 0 0;
+    max-width:100%;
 }

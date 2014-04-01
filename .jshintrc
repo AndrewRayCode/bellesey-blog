@@ -19,6 +19,8 @@
     "predef" : [
         "Firebase",
         "_",
+        "wysihtml5",
+        "wysihtml5ParserRules",
         "angular"
     ],
 
