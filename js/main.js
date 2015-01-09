@@ -6,7 +6,7 @@ phonecatApp.controller('app-ctrl', function( $scope, $firebase, $sanitize ) {
         return false;
     };
 
-    var fireRef = new Firebase('https://bellesey-blog.firebaseio.com');
+    var fireRef = new Firebase('https://dumps-and-poops.firebaseio.com/');
 
     //fireRef.on('child_added', function(snapshot) {
         //console.log( 'I guess we go tshit', snapshot.val() );
